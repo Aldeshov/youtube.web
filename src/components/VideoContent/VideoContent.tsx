@@ -44,10 +44,10 @@ const VideoContentComponent = () => {
     }, [videoCODE]);
 
     return (
-        <Container style={{ paddingTop: 75 }}>
+        <Container fluid style={{ paddingTop: 75, display: 'flex', justifyContent: 'center' }}>
             {
                 (defState as DefaultState).status === StoreState.LOADED_SUCCESSFULLY &&
-                <Card style={{ alignItems: 'center' }}>
+                <Card style={{ width: '700px'}}>
                     <Card.Body>
                         <video width="640" controls>
                             <source src={`${BASE_URL}/media/placeholder.mp4`} type="video/mp4" />
@@ -57,7 +57,7 @@ const VideoContentComponent = () => {
                             <h6><strong>{videoContent?.title}</strong></h6>
                         </Card.Title>
                         <Row>
-                            <div style={{ width: '75%' }}>
+                            <div style={{ width: '90%' }}>
                                 {videoContent?.description}
                             </div>
                         </Row>
