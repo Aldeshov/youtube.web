@@ -1,7 +1,10 @@
-export const IP = "192.168.199.120"
+export const IP = "127.0.0.1"
 export const PORT = 8000
+export const PROD = false;
 
-export const BASE_URL = `http://${IP}:${PORT}` // API - DJango Server
+export const BASE_URL = PROD ? '' : `http://${IP}:${PORT}`
+
+export const API_URL = PROD ? '/api' : '' // API - DJango Server
 
 // export const DATE_PATTERN = "yyyy-MM-dd'T'hh:mm:ss.SSSSSS'Z'Z"
 export function getDateTimePreview(date: string) {

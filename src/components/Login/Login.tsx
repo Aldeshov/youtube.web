@@ -11,7 +11,7 @@ import Alert from 'react-bootstrap/Alert'
 import { BiLogIn } from 'react-icons/bi'
 
 import { APIRequest } from '../../tools/API';
-import { BASE_URL } from "../../tools/Config";
+import { API_URL } from "../../tools/Config";
 
 function reducer(state: any, action: any) {
     switch (action.type) {
@@ -41,7 +41,7 @@ export default function Login() {
         event.preventDefault();
         dispatch({ type: 'loading', payload: "" });
         
-        APIRequest<any>(`${BASE_URL}/auth/login`, {
+        APIRequest<any>(`${API_URL}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

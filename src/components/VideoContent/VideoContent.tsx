@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button, Card, Col, Container, Figure, Row } from 'react-bootstrap';
 
 import VideoContent from '../../models/VideoContent'
-import { BASE_URL, getDateTimePreview } from '../../tools/Config';
+import { API_URL, BASE_URL, getDateTimePreview } from '../../tools/Config';
 import { BiTime } from 'react-icons/bi';
 import { AiOutlineEye } from 'react-icons/ai';
 import { AiTwotoneLike } from 'react-icons/ai';
@@ -27,7 +27,7 @@ const VideoContentComponent = () => {
         dispatch({ type: 'LOADING', payload: null });
         setVideoContent(undefined);
 
-        APIRequest<VideoContent>(`${BASE_URL}/app/contents/${videoCODE}`, {
+        APIRequest<VideoContent>(`${API_URL}/app/contents/${videoCODE}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `JWT ${tokenState}`
@@ -50,7 +50,7 @@ const VideoContentComponent = () => {
                 <Card style={{ width: '700px'}}>
                     <Card.Body>
                         <video width="640" controls>
-                            <source src={`${BASE_URL}/media/placeholder.mp4`} type="video/mp4" />
+                            <source src={`${BASE_URL}${videoContent?.video}`} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                         <Card.Title>

@@ -6,7 +6,7 @@ import VideoContentListContext from '../../contexts/VideoContentListContext';
 
 import VideoContent from '../../models/VideoContent'
 import StoreState from '../../models/StoreState';
-import { BASE_URL } from '../../tools/Config'
+import { API_URL } from '../../tools/Config'
 import { APIRequest } from '../../tools/API'
 
 import './ContentList.css';
@@ -28,7 +28,7 @@ const ContentList = () => {
     dispatch({ type: 'LOADING', payload: null });
     setVideoContents([])
 
-    APIRequest<VideoContent[]>(`${BASE_URL}/app/contents`, {
+    APIRequest<VideoContent[]>(`${API_URL}/app/contents`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `JWT ${tokenState}`
